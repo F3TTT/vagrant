@@ -3,3 +3,9 @@ name=Enterprise Linux $releasever latest - $basearch - base
 baseurl=http://kickstarter.dqscust.local/yum/RHEL6/latest/base/$basearch/
 gpgcheck=1
 enabled=1
+
+[rhel6_latest_unsigned_local]
+name=Enterprise Linux $releasever latest - $basearch - unsigned
+baseurl=http://kickstarter.dqscust.local/yum/RHEL6/latest/unsigned/$basearch/
+gpgcheck=1
+enabled=1
