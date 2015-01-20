@@ -35,3 +35,6 @@ sudo service puppet start
 
 # http://docs.puppetlabs.com/guides/installation.html#post-install
 sudo puppet resource service puppet ensure=running enable=true
+
+# set vagrant password
+usermod -p "paX5EmO4EXy0I" vagrant
