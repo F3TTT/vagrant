@@ -1,0 +1,5 @@
+[rhel6_latest_base_local]
+name=Enterprise Linux $releasever latest - $basearch - base
+baseurl=http://kickstarter.dqscust.local/yum/RHEL6/latest/base/$basearch/
+gpgcheck=1
+enabled=1

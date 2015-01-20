@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
      master.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      master.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
      master.vm.synced_folder "puppet/", "/home/vagrant/puppet"
+     master.vm.synced_folder "etc/", "/home/vagrant/etc"
      
      master.vm.provider :virtualbox do |v, override|
        override.vm.network :private_network, ip: "192.168.0.6"
@@ -16,7 +17,7 @@ Vagrant.configure("2") do |config|
        v.customize ["modifyvm", :id, "--memory", "2048"]
      end
     
-    master.vm.provision :shell, :path => "shell/linux/PuppetInstallMaster.sh"
+    master.vm.provision :shell, :path => "shell/linux/puppetInstallMaster.sh"
     master.vm.provision :shell, :inline => 'echo "192.168.0.6  puppet" >> /etc/hosts'
     end
 
@@ -26,6 +27,7 @@ Vagrant.configure("2") do |config|
      client.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
      client.vm.synced_folder "puppet/", "/home/vagrant/puppet"
+     client.vm.synced_folder "etc/", "/home/vagrant/etc"
      
      client.vm.provider :virtualbox do |v, override|
        override.vm.network :private_network, ip: "192.168.0.100"
@@ -34,7 +36,7 @@ Vagrant.configure("2") do |config|
        v.customize ["modifyvm", :id, "--memory", "2048"]
      end
     
-    client.vm.provision :shell, :path => "shell/linux/PuppetInstallCentOS.sh"
+    client.vm.provision :shell, :path => "shell/linux/puppetInstallCentOS.sh"
     client.vm.provision :shell, :inline => 'echo "192.168.0.100  puppet" >> /etc/hosts'
     end
 #   config.vm.define "2k8" do |eight|

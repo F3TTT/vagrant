@@ -1,0 +1,11 @@
+[rhel6_u3_base_local]
+name=Enterprise Linux $releasever U3 - $basearch - base
+baseurl=http://kickstarter.dqscust.local/yum/RHEL6/3/base/$basearch/
+gpgcheck=1
+enabled=1
+
+[rhel6_addons]
+name=Enterprise Linux $releasever - $basearch - addons
+baseurl=http://kickstarter.dqscust.local/yum/RHEL6/3/addons/$basearch/
+gpgcheck=1
+enabled=1
