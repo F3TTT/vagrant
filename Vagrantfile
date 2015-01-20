@@ -20,6 +20,23 @@ Vagrant.configure("2") do |config|
     master.vm.provision :shell, :inline => 'echo "192.168.0.6  puppet" >> /etc/hosts'
     end
 
+   config.vm.define "client" do |client|
+     client.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     client.vm.hostname= "puppet.localdomain"
+     client.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
+     client.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
+     client.vm.synced_folder "puppet/", "/home/vagrant/puppet"
+     
+     client.vm.provider :virtualbox do |v, override|
+       override.vm.network :private_network, ip: "192.168.0.100"
+       # Use the host's DNS resolver
+       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+       v.customize ["modifyvm", :id, "--memory", "2048"]
+     end
+    
+    client.vm.provision :shell, :path => "shell/linux/PuppetInstallCentOS.sh"
+    client.vm.provision :shell, :inline => 'echo "192.168.0.100  puppet" >> /etc/hosts'
+    end
 #   config.vm.define "2k8" do |eight|
 #     eight.vm.box = "win-srv-2k8r2"
 #     eight.vm.guest = :windows
