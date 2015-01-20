@@ -18,6 +18,7 @@ Vagrant.configure("2") do |config|
      end
     
     master.vm.provision :shell, :path => "shell/linux/puppetInstallMaster.sh"
+    master.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     master.vm.provision :shell, :inline => 'echo "192.168.0.6  puppet" >> /etc/hosts'
     end
 
@@ -37,6 +38,7 @@ Vagrant.configure("2") do |config|
      end
     
     client.vm.provision :shell, :path => "shell/linux/puppetInstallCentOS.sh"
+    client.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     client.vm.provision :shell, :inline => 'echo "192.168.0.100  puppet" >> /etc/hosts'
     end
 #   config.vm.define "2k8" do |eight|
