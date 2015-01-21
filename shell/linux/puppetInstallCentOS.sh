@@ -11,12 +11,12 @@ sudo chkconfig iptables off
 
 # Set the hostname to puppet
 # sudo vim /etc/sysconfig/network
-sudo hostname centos
+sudo hostname puppetclient.localdomain
 sudo service network restart
 
 # add the RPM
 # http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html#for-red-hat-enterprise-linux-and-derivatives
-sudo rpm -ivh http://yum.puppetlabs.com/el/6/products/x86_64/puppetlabs-release-6-7.noarch.rpm
+sudo yum -y install puppetlabs-release
 sudo yum -y install puppet
 
 

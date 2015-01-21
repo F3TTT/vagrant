@@ -11,7 +11,7 @@ sudo chkconfig iptables off
 
 # Set the hostname to puppet
 # sudo vim /etc/sysconfig/network
-sudo hostname puppet.localdomain
+sudo hostname puppetmaster.localdomain
 sudo service network restart
 
 
@@ -20,6 +20,7 @@ sudo service network restart
 sudo yum -y install puppet-release
 sudo yum -y install puppet-server
 sudo yum -y install foreman-release
+sudo yum -y install foreman-installer
 
 # autosign on - never use this for production
 sudo sh -c "echo * > /etc/puppet/autosign.conf"
@@ -38,3 +39,7 @@ sudo puppet resource service puppet ensure=running enable=true
 
 # set vagrant password
 usermod -p "paX5EmO4EXy0I" vagrant
+
+# Install Foreman
+foreman-installer
+

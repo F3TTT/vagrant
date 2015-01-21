@@ -1,7 +1,9 @@
+# all GPG signing turned off for POC.  DONT DO THIS IN PROD/DEV/QA
+
 [rhel6_latest_base_local]
 name=Enterprise Linux $releasever latest - $basearch - base
 baseurl=http://kickstarter.dqscust.local/yum/RHEL6/latest/base/$basearch/
-gpgcheck=1
+gpgcheck=0
 enabled=1
 
 [rhel6_latest_unsigned_local]

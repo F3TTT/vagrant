@@ -4,7 +4,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure("2") do |config|
    config.vm.define "master" do |master|
      master.vm.box = "puppetlabs/centos-6.5-64-nocm"
-     master.vm.hostname= "puppet.localdomain"
+     master.vm.hostname= "puppetmaster.localdomain"
      master.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      master.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
      master.vm.synced_folder "puppet/", "/home/vagrant/puppet"
@@ -19,12 +19,12 @@ Vagrant.configure("2") do |config|
     
     master.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     master.vm.provision :shell, :path => "shell/linux/puppetInstallMaster.sh"
-    master.vm.provision :shell, :inline => 'echo "192.168.0.6  puppet" >> /etc/hosts'
+    master.vm.provision :shell, :inline => 'echo "192.168.0.6  puppetmaster.localdomain puppetmaster" >> /etc/hosts'
     end
 
    config.vm.define "client" do |client|
      client.vm.box = "puppetlabs/centos-6.5-64-nocm"
-     client.vm.hostname= "puppet.localdomain"
+     client.vm.hostname= "puppetclient.localdomain"
      client.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
      client.vm.synced_folder "puppet/", "/home/vagrant/puppet"
@@ -39,7 +39,7 @@ Vagrant.configure("2") do |config|
     
     client.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     client.vm.provision :shell, :path => "shell/linux/puppetInstallCentOS.sh"
-    client.vm.provision :shell, :inline => 'echo "192.168.0.100  puppet" >> /etc/hosts'
+    client.vm.provision :shell, :inline => 'echo "192.168.0.100  puppetclient.localdomain puppetclient" >> /etc/hosts'
     end
 #   config.vm.define "2k8" do |eight|
 #     eight.vm.box = "win-srv-2k8r2"
