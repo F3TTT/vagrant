@@ -7,5 +7,5 @@ enabled=1
 [rhel6_latest_unsigned_local]
 name=Enterprise Linux $releasever latest - $basearch - unsigned
 baseurl=http://kickstarter.dqscust.local/yum/RHEL6/latest/unsigned/$basearch/
-gpgcheck=1
+gpgcheck=0
 enabled=1
