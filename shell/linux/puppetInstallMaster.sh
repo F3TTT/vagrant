@@ -25,6 +25,10 @@ sudo yum -y install foreman-installer
 # autosign on - never use this for production
 sudo sh -c "echo * > /etc/puppet/autosign.conf"
 
+# trying to see if this will clear the error after foreman-installer.  
+sudo service httpd start
+sudo service httpd stop
+
 sudo service puppet stop
 sudo service puppetmaster stop
 #move puppet.conf into place
