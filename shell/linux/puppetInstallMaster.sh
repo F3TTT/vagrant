@@ -21,13 +21,16 @@ sudo yum -y install puppet-release
 sudo yum -y install puppet-server
 sudo yum -y install foreman-release
 sudo yum -y install foreman-installer
+# not sure you need this if foreman-installer will put it in
+#sudo yum -y install httpd
 
 # autosign on - never use this for production
 sudo sh -c "echo * > /etc/puppet/autosign.conf"
 
 # trying to see if this will clear the error after foreman-installer.  
-sudo service httpd start
-sudo service httpd stop
+# don't need to stop/start it if that wasn't source of build fail
+#sudo service httpd start
+#sudo service httpd stop
 
 sudo service puppet stop
 sudo service puppetmaster stop
@@ -45,5 +48,9 @@ sudo puppet resource service puppet ensure=running enable=true
 usermod -p "paX5EmO4EXy0I" vagrant
 
 # Install Foreman
-foreman-installer
+# use || true to override the failure to start apache that causes build to fail
+foreman-installer || true
+
+sudo service httpd stop
+sudo service httpd start
 
