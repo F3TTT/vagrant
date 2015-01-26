@@ -4,6 +4,9 @@
 # ensure the date/time is synced
 sudo ntpdate us.pool.ntp.org
 
+# Set up NTPD
+sudo service ntpd start
+
 # shut down firewall permanently
 sudo service iptables save
 sudo service iptables stop

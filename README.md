@@ -22,6 +22,7 @@ HOWTO
 6.  Set up smart proxy: https://puppetmaster.localdomain:8443
 7.  Report bugs, especially for Mac/VMWare uses.  Development on platforms other than Win7/Virtualbox are not currently a priority.
 
+
 TODO
 ======
 
@@ -34,3 +35,10 @@ TODO
 6.  Incrementally improve framework to fix all use cases
 7.  Provide framework to business for acquisition of licenses.
 8.  Implement in production
+
+
+Use cases and architecture questions
+======
+1.  How many masters will we need?  How will load balancing of master be achieved
+2.  Where does the Certificate Authority sit?
+3.  Allow dev to autosign but not QA and Prod, How?
