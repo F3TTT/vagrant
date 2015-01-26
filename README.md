@@ -17,6 +17,11 @@ HOWTO
 2.  Install Virtualbox
 3.  Pull code from Github
 4.  vagrant up
+5.  Add following lines to hosts file on laptop
+<code>
+192.168.0.6	puppetmaster.localdomain
+192.168.0.100	puppetclient.localdomain
+</code>
 5.  log into foreman https://192.168.0.6 (ignore cert issues, may have to flush cache/use private or incognito modes to get around them)
     username and password to foreman are produced randomly during vagrant up.  Scroll up in vagrant up session to find it.
 6.  Set up smart proxy: https://puppetmaster.localdomain:8443

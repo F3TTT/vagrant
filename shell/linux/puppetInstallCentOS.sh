@@ -19,11 +19,21 @@ sudo service network restart
 sudo yum -y install puppetlabs-release
 sudo yum -y install puppet
 
+# Add puppetmaster to hosts file
+sudo echo "192.168.0.6     puppetmaster.localdomain puppetmaster" >> /etc/hosts
+
+# Add puppetmaster to puppet.conf
+sudo sed -i '/\[main\]/a      server = puppetmaster.localdomain' /etc/puppet/puppet.conf
+sudo sed -i 's/server =/    server =/' /etc/puppet/puppet.conf
 
 # http://docs.puppetlabs.com/guides/installation.html#post-install
 sudo puppet resource service puppet ensure=running enable=true
 
+# Request cert 
+sudo puppet agent --test 
+
 # set vagrant password
 usermod -p "paX5EmO4EXy0I" vagrant
+
 
 

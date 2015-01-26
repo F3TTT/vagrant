@@ -28,7 +28,7 @@ sudo yum -y install foreman-installer
 #sudo yum -y install httpd
 
 # autosign on - never use this for production
-sudo sh -c "echo * > /etc/puppet/autosign.conf"
+sudo sh -c "echo *.localdomain" > /etc/puppet/autosign.conf
 
 # trying to see if this will clear the error after foreman-installer.  
 # don't need to stop/start it if that wasn't source of build fail
