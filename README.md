@@ -26,7 +26,10 @@ HOWTO USE THESE EXAMPLES (think I was supposed to put HOWTO make this image here
     username and password to foreman are produced randomly during vagrant up.  Scroll up in vagrant up session to find it.
 7.  Set up smart proxy: https://puppetmaster.localdomain:8443
 8.  vagrant up client
-9.  Report bugs, especially for Mac/VMWare uses.  Development on platforms other than Win7/Virtualbox are not currently a priority.
+9.  vagrant ssh master
+ - puppet module install -i /etc/puppet/environments/production/modules saz/ntp
+ - add class to hosts in foreman GUI
+10.  Report bugs, especially for Mac/VMWare uses.  Development on platforms other than Win7/Virtualbox are not currently a priority.
 
 
 TODO
@@ -34,8 +37,9 @@ TODO
 
 0.  Improve README to flesh out the github section
 1.  Make puppet client join to puppet server and control puppet client with basic commands.
-2.  Add puppet client to foreman ENC.
-3.  Set up smart proxy inside foreman ENC and document procedure.
+ - having issues with puppet agent not checking in every 30 min due to cert issues.  dropping runinterval to 2m in /etc/puppet/puppet.conf to troubleshot
+~~2.  Add puppet client to foreman ENC.~~
+~~3.  Set up smart proxy inside foreman ENC and document procedure.~~
 4.  Gather use cases for puppet inside Epiq
 5.  Execute use cases
 6.  Incrementally improve framework to fix all use cases
