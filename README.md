@@ -38,7 +38,7 @@ TODO
 0.  Improve README to flesh out the github section
 1.  Make puppet client join to puppet server and control puppet client with basic commands.
  - having issues with puppet agent not checking in every 30 min due to cert issues.  dropping runinterval to 2m in /etc/puppet/puppet.conf to troubleshot
-2.  ~~Add puppet client to foreman ENC. ~~ 
+2.  ~~Add puppet client to foreman ENC.~~ 
 3.  ~~Set up smart proxy inside foreman ENC and document procedure.~~
 4.  Gather use cases for puppet inside Epiq
 5.  Execute use cases
