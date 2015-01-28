@@ -22,11 +22,11 @@ HOWTO USE THESE EXAMPLES (think I was supposed to put HOWTO make this image here
 192.168.0.6	puppetmaster.localdomain
 192.168.0.100	puppetclient.localdomain
 ```
-5.  log into foreman https://192.168.0.6 (ignore cert issues, may have to flush cache/use private or incognito modes to get around them)
+6.  log into foreman https://192.168.0.6 (ignore cert issues, may have to flush cache/use private or incognito modes to get around them)
     username and password to foreman are produced randomly during vagrant up.  Scroll up in vagrant up session to find it.
-6.  Set up smart proxy: https://puppetmaster.localdomain:8443
-7.  vagrant up client
-8.  Report bugs, especially for Mac/VMWare uses.  Development on platforms other than Win7/Virtualbox are not currently a priority.
+7.  Set up smart proxy: https://puppetmaster.localdomain:8443
+8.  vagrant up client
+9.  Report bugs, especially for Mac/VMWare uses.  Development on platforms other than Win7/Virtualbox are not currently a priority.
 
 
 TODO
