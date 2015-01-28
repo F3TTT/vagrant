@@ -19,7 +19,7 @@ HOWTO USE THESE EXAMPLES (think I was supposed to put HOWTO make this image here
 4.  vagrant up master
 5.  Add following lines to hosts file on laptop
 
-        192.168.0.6	puppetmaster.localdomain
+        192.168.0.6     puppetmaster.localdomain
         192.168.0.100	puppetclient.localdomain
 
 6.  log into foreman https://192.168.0.6 (ignore cert issues, may have to flush cache/use private or incognito modes to get around them)
