@@ -13,7 +13,7 @@ This project currently builds two CentOS boxes from Puppetlabs that do not have 
 HOWTO
 ======
 
-1.  Install Vagrant 
+1.  Install Vagrant  use http://vagrantup.com and use download link, not downloads.vagrantup.com 
 2.  Install Virtualbox
 3.  Pull code from Github
 4.  vagrant up
@@ -40,6 +40,7 @@ TODO
 6.  Incrementally improve framework to fix all use cases
 7.  Provide framework to business for acquisition of licenses.
 8.  Implement in production
+9.  See if foreman install can be sped up.  Alternatively, fork off to diff vagrant to speed up sprints
 
 
 Use cases and architecture questions
