@@ -15,6 +15,7 @@ Vagrant.configure("2") do |config|
        # Use the host's DNS resolver
        v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
        v.customize ["modifyvm", :id, "--memory", "2048"]
+       v.customize ["modifyvm", :id, "--cpus", "2"]
      end
     
     master.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
@@ -36,6 +37,7 @@ Vagrant.configure("2") do |config|
        # Use the host's DNS resolver
        v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
        v.customize ["modifyvm", :id, "--memory", "2048"]
+       v.customize ["modifyvm", :id, "--cpus", "2"]
      end
     
     client.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
