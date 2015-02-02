@@ -17,6 +17,11 @@ Vagrant.configure("2") do |config|
        v.customize ["modifyvm", :id, "--memory", "2048"]
        v.customize ["modifyvm", :id, "--cpus", "2"]
      end
+
+    if defined? VagrantPlugins::HostsUpdater
+      master.hostsupdater.aliases = ["#{master.vm.hostname}.dev"]
+    end
+
     
     master.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     master.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
@@ -39,6 +44,11 @@ Vagrant.configure("2") do |config|
        v.customize ["modifyvm", :id, "--memory", "2048"]
        v.customize ["modifyvm", :id, "--cpus", "2"]
      end
+
+    if defined? VagrantPlugins::HostsUpdater
+      client.hostsupdater.aliases = ["#{client.vm.hostname}.dev"]
+    end
+
     
     client.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     client.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
