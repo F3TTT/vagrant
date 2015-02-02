@@ -16,32 +16,40 @@ HOWTO USE THESE EXAMPLES (think I was supposed to put HOWTO make this image here
 1.  Install Vagrant  use http://vagrantup.com and use download link, not downloads.vagrantup.com 
 -   Install Virtualbox
 -   Install vagrant plugin HostsUpdater https://github.com/cogitatio/vagrant-hostsupdater (may require many re-attempts if there is network congestion) 
-3.  Pull code from Github
-4.  vagrant up master
-6.  log into foreman https://192.168.0.6 (ignore cert issues, may have to flush cache/use private or incognito modes to get around them)
+-  Pull code from Github
+-  vagrant up master
+-  log into foreman https://192.168.0.6 (ignore cert issues, may have to flush cache/use private or incognito modes to get around them)
     username and password to foreman are produced randomly during vagrant up.  Scroll up in vagrant up session to find it.
-7.  Set up smart proxy: https://puppetmaster.localdomain:8443
-8.  vagrant up client
-9.  vagrant ssh master
+-  Set up smart proxy: https://puppetmaster.localdomain:8443
+-  vagrant up client
+-  vagrant ssh master
  - puppet module install -i /etc/puppet/environments/production/modules saz/ntp
  - add class to hosts in foreman GUI
-10.  Report bugs, especially for Mac/VMWare uses.  Development on platforms other than Win7/Virtualbox are not currently a priority.
+-  Report bugs, especially for Mac/VMWare uses.  Development on platforms other than Win7/Virtualbox are not currently a priority.
 
 
 TODO
 ======
 
-0.  Improve README to flesh out the github section
-1.  Make puppet client join to puppet server and control puppet client with basic commands.
+1.  Improve README to flesh out the github section
+-  Make puppet client join to puppet server and control puppet client with basic commands.
  - having issues with puppet agent not checking in every 30 min due to cert issues.  dropping runinterval to 2m in /etc/puppet/puppet.conf to troubleshot
-2.  ~~Add puppet client to foreman ENC.~~ 
-3.  ~~Set up smart proxy inside foreman ENC and document procedure.~~
-4.  Gather use cases for puppet inside Epiq
-5.  Execute use cases
-6.  Incrementally improve framework to fix all use cases
-7.  Provide framework to business for acquisition of licenses.
-8.  Implement in production
-9.  See if foreman install can be sped up.  Alternatively, fork off to diff vagrant to speed up sprints
+-  Gather use cases for puppet inside Epiq
+-  Execute use cases
+-  Incrementally improve framework to fix all use cases
+-  Provide framework to business for acquisition of licenses.
+-  Implement in production
+-  See if foreman install can be sped up.  Alternatively, fork off to diff vagrant to speed up sprints
+
+
+CHANGELOG
+======
+
+20150202
+1.  Add puppet client to foreman ENC. 
+-  Set up smart proxy inside foreman ENC and document procedure.
+-  Converted manual hosts file changes from vagrant user's laptop to HostsUpdater plugin method
+
 
 
 Use cases and architecture questions
