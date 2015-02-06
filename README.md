@@ -20,11 +20,8 @@ HOWTO USE THESE EXAMPLES (think I was supposed to put HOWTO make this image here
 -  vagrant up master
 -  log into foreman https://puppetmaster.localdomain (ignore cert issues, may have to flush cache/use private or incognito modes to get around them)
     username and password to foreman are produced randomly during vagrant up.  Scroll up in vagrant up session to find it.
--  Set up smart proxy: https://puppetmaster.localdomain:8443
+-  Set up smart proxy by browsing to https://puppetmaster.localdomain/smart_proxies and clicking New Smart Proxy then adding: https://puppetmaster.localdomain:8443
 -  vagrant up client
--  vagrant ssh master
- - puppet module install -i /etc/puppet/environments/production/modules saz/ntp
- - add class to hosts in foreman GUI
 -  Report bugs, especially for Mac/VMWare uses.  Development on platforms other than Win7/Virtualbox are not currently a priority.
 
 
@@ -41,19 +38,7 @@ TODO
 -  Implement in production
 -  See if foreman install can be sped up.  Alternatively, fork off to diff vagrant to speed up sprints
 
-
-CHANGELOG
-======
-
-20150202
-
-1.  Add puppet client to foreman ENC. 
--  Set up smart proxy inside foreman ENC and document procedure.
--  Converted manual hosts file changes from vagrant user's laptop to HostsUpdater plugin method
-
-
-
-Use cases and architecture questions
+Use Case Index
 ======
 
 1.  Install a package via puppet
@@ -72,6 +57,14 @@ Use cases and architecture questions
 -  Orchestrate application upgrade with minimal customer impact
 -  Developer is able to check out production branch and create dynamic environment on laptop or VMWare
 
+Use Case 1 - Install a package via puppet
+======
+
+1.  Install Puppet foreman module
+ - vagrant ssh master
+  - ```sudo puppet module install -i /etc/puppet/environments/production/modules saz/ntp```
+  - add class to hosts in foreman GUI
+
 
 Architecture Questions
 ======
@@ -79,3 +72,17 @@ Architecture Questions
 1.  How many masters will we need?  How will load balancing of master be achieved
 -  Where does the Certificate Authority sit?
 -  Allow dev to autosign but not QA and Prod, How?
+
+
+CHANGELOG
+======
+
+20150206
+
+1.  Broke out use cases and fleshed out 15 examples
+
+20150202
+
+1.  Add puppet client to foreman ENC. 
+-  Set up smart proxy inside foreman ENC and document procedure.
+-  Converted manual hosts file changes from vagrant user's laptop to HostsUpdater plugin method
