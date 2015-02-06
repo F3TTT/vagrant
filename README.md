@@ -64,6 +64,16 @@ Use Case 1 - Install a package via puppet
  - vagrant ssh master
   - ```sudo puppet module install -i /etc/puppet/environments/production/modules saz/ntp```
   - add class to hosts in foreman GUI
+    - Configure -> Puppet Classes
+    - Import from puppetmaster
+    - Toggle ntp line and click update
+    - Hosts -> All hosts
+    - click on edit box (sort of looks like dropdown) on puppetclient.localdomain
+    - Puppet Classes tab
+    - ntp
+    - + sign next to ntp
+    - submit
+
 
 
 Architecture Questions
