@@ -11,8 +11,8 @@ sudo chkconfig iptables off
 
 # Set the hostname to puppet
 # sudo vim /etc/sysconfig/network
-sudo hostname puppetclient.localdomain
-sudo service network restart
+#sudo hostname puppetclient.localdomain
+#sudo service network restart
 
 # add the RPM
 # http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html#for-red-hat-enterprise-linux-and-derivatives
