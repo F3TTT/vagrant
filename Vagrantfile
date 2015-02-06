@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
 
    config.vm.define "client100" do |client100|
      client100.vm.box = "puppetlabs/centos-6.5-64-nocm"
-     client100.vm.hostname= "puppetclient100.localdomain"
+     client100.vm.hostname= "client100.localdomain"
      client100.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client100.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
      client100.vm.synced_folder "puppet/", "/home/vagrant/puppet"
@@ -43,11 +43,11 @@ Vagrant.configure("2") do |config|
     client100.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     client100.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
     client100.vm.provision :shell, :path => "shell/linux/puppetInstallCentOS.sh"
-    client100.vm.provision :shell, :inline => 'echo "192.168.0.100  puppetclient100.localdomain puppetclient100" >> /etc/hosts'
+    client100.vm.provision :shell, :inline => 'echo "192.168.0.100  client100.localdomain client100" >> /etc/hosts'
     end
    config.vm.define "client101" do |client101|
      client101.vm.box = "puppetlabs/centos-6.5-64-nocm"
-     client101.vm.hostname= "puppetclient101.localdomain"
+     client101.vm.hostname= "client101.localdomain"
      client101.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client101.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
      client101.vm.synced_folder "puppet/", "/home/vagrant/puppet"
@@ -64,11 +64,11 @@ Vagrant.configure("2") do |config|
     client101.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     client101.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
     client101.vm.provision :shell, :path => "shell/linux/puppetInstallCentOS.sh"
-    client101.vm.provision :shell, :inline => 'echo "192.168.0.101  puppetclient101.localdomain puppetclient101" >> /etc/hosts'
+    client101.vm.provision :shell, :inline => 'echo "192.168.0.101  client101.localdomain client101" >> /etc/hosts'
     end
    config.vm.define "client102" do |client102|
      client102.vm.box = "puppetlabs/centos-6.5-64-nocm"
-     client102.vm.hostname= "puppetclient102.localdomain"
+     client102.vm.hostname= "client102.localdomain"
      client102.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client102.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
      client102.vm.synced_folder "puppet/", "/home/vagrant/puppet"
@@ -85,11 +85,11 @@ Vagrant.configure("2") do |config|
     client102.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     client102.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
     client102.vm.provision :shell, :path => "shell/linux/puppetInstallCentOS.sh"
-    client102.vm.provision :shell, :inline => 'echo "192.168.0.102  puppetclient102.localdomain puppetclient102" >> /etc/hosts'
+    client102.vm.provision :shell, :inline => 'echo "192.168.0.102  client102.localdomain client102" >> /etc/hosts'
     end
    config.vm.define "client103" do |client103|
      client103.vm.box = "puppetlabs/centos-6.5-64-nocm"
-     client103.vm.hostname= "puppetclient103.localdomain"
+     client103.vm.hostname= "client103.localdomain"
      client103.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client103.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
      client103.vm.synced_folder "puppet/", "/home/vagrant/puppet"
@@ -106,11 +106,11 @@ Vagrant.configure("2") do |config|
     client103.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     client103.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
     client103.vm.provision :shell, :path => "shell/linux/puppetInstallCentOS.sh"
-    client103.vm.provision :shell, :inline => 'echo "192.168.0.103  puppetclient103.localdomain puppetclient103" >> /etc/hosts'
+    client103.vm.provision :shell, :inline => 'echo "192.168.0.103  client103.localdomain client103" >> /etc/hosts'
     end
    config.vm.define "client104" do |client104|
      client104.vm.box = "puppetlabs/centos-6.5-64-nocm"
-     client104.vm.hostname= "puppetclient104.localdomain"
+     client104.vm.hostname= "client104.localdomain"
      client104.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client104.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
      client104.vm.synced_folder "puppet/", "/home/vagrant/puppet"
@@ -127,11 +127,11 @@ Vagrant.configure("2") do |config|
     client104.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     client104.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
     client104.vm.provision :shell, :path => "shell/linux/puppetInstallCentOS.sh"
-    client104.vm.provision :shell, :inline => 'echo "192.168.0.104  puppetclient104.localdomain puppetclient104" >> /etc/hosts'
+    client104.vm.provision :shell, :inline => 'echo "192.168.0.104  client104.localdomain client104" >> /etc/hosts'
     end
    config.vm.define "client105" do |client105|
      client105.vm.box = "puppetlabs/centos-6.5-64-nocm"
-     client105.vm.hostname= "puppetclient105.localdomain"
+     client105.vm.hostname= "client105.localdomain"
      client105.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client105.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
      client105.vm.synced_folder "puppet/", "/home/vagrant/puppet"
@@ -148,11 +148,11 @@ Vagrant.configure("2") do |config|
     client105.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     client105.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
     client105.vm.provision :shell, :path => "shell/linux/puppetInstallCentOS.sh"
-    client105.vm.provision :shell, :inline => 'echo "192.168.0.105  puppetclient105.localdomain puppetclient105" >> /etc/hosts'
+    client105.vm.provision :shell, :inline => 'echo "192.168.0.105  client105.localdomain client105" >> /etc/hosts'
     end
    config.vm.define "client106" do |client106|
      client106.vm.box = "puppetlabs/centos-6.5-64-nocm"
-     client106.vm.hostname= "puppetclient106.localdomain"
+     client106.vm.hostname= "client106.localdomain"
      client106.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client106.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
      client106.vm.synced_folder "puppet/", "/home/vagrant/puppet"
@@ -169,11 +169,11 @@ Vagrant.configure("2") do |config|
     client106.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     client106.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
     client106.vm.provision :shell, :path => "shell/linux/puppetInstallCentOS.sh"
-    client106.vm.provision :shell, :inline => 'echo "192.168.0.106  puppetclient106.localdomain puppetclient106" >> /etc/hosts'
+    client106.vm.provision :shell, :inline => 'echo "192.168.0.106  client106.localdomain client106" >> /etc/hosts'
     end
    config.vm.define "client107" do |client107|
      client107.vm.box = "puppetlabs/centos-6.5-64-nocm"
-     client107.vm.hostname= "puppetclient107.localdomain"
+     client107.vm.hostname= "client107.localdomain"
      client107.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client107.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
      client107.vm.synced_folder "puppet/", "/home/vagrant/puppet"
@@ -190,11 +190,11 @@ Vagrant.configure("2") do |config|
     client107.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     client107.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
     client107.vm.provision :shell, :path => "shell/linux/puppetInstallCentOS.sh"
-    client107.vm.provision :shell, :inline => 'echo "192.168.0.107  puppetclient107.localdomain puppetclient107" >> /etc/hosts'
+    client107.vm.provision :shell, :inline => 'echo "192.168.0.107  client107.localdomain client107" >> /etc/hosts'
     end
    config.vm.define "client108" do |client108|
      client108.vm.box = "puppetlabs/centos-6.5-64-nocm"
-     client108.vm.hostname= "puppetclient108.localdomain"
+     client108.vm.hostname= "client108.localdomain"
      client108.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client108.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
      client108.vm.synced_folder "puppet/", "/home/vagrant/puppet"
@@ -211,11 +211,11 @@ Vagrant.configure("2") do |config|
     client108.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     client108.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
     client108.vm.provision :shell, :path => "shell/linux/puppetInstallCentOS.sh"
-    client108.vm.provision :shell, :inline => 'echo "192.168.0.108  puppetclient108.localdomain puppetclient108" >> /etc/hosts'
+    client108.vm.provision :shell, :inline => 'echo "192.168.0.108  client108.localdomain client108" >> /etc/hosts'
     end
    config.vm.define "client109" do |client109|
      client109.vm.box = "puppetlabs/centos-6.5-64-nocm"
-     client109.vm.hostname= "puppetclient109.localdomain"
+     client109.vm.hostname= "client109.localdomain"
      client109.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client109.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
      client109.vm.synced_folder "puppet/", "/home/vagrant/puppet"
@@ -232,7 +232,7 @@ Vagrant.configure("2") do |config|
     client109.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     client109.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
     client109.vm.provision :shell, :path => "shell/linux/puppetInstallCentOS.sh"
-    client109.vm.provision :shell, :inline => 'echo "192.168.0.109  puppetclient109.localdomain puppetclient109" >> /etc/hosts'
+    client109.vm.provision :shell, :inline => 'echo "192.168.0.109  client109.localdomain client109" >> /etc/hosts'
     end
 #   config.vm.define "2k8" do |eight|
 #     eight.vm.box = "win-srv-2k8r2"
