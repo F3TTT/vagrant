@@ -41,9 +41,10 @@ TODO
 Use Case Index
 ======
 
-1.  Install a package via puppet
--  Control package configuration via puppet
--  Enforce CM via puppet
+1.  Install a package on one machine
+- Install a package on many machines
+-  Control package configuration
+-  Enforce CM
 -  Control diverse package configurations based upon geographic location
 -  Control diverse package configurations based upon code maturity (dev/qa/prod)
 -  Control diverse package configurations based upon geolocation and code maturity
@@ -60,13 +61,14 @@ Use Case Index
 Use Case 1 - Install a package via puppet
 ======
 
-1.  Install Puppet foreman module
+1.  Install a package via puppet on one machine
  - vagrant ssh master
   - ```sudo puppet module install -i /etc/puppet/environments/production/modules saz/ntp```
   - add class to hosts in foreman GUI
     - Configure -> Puppet Classes
     - Import from puppetmaster
     - Toggle ntp line and click update
+    - Ntp -> Smart Class Parameter -> Check Override -> Submit
     - Hosts -> All hosts
     - click on edit box (sort of looks like dropdown) on puppetclient.localdomain
     - Puppet Classes tab
