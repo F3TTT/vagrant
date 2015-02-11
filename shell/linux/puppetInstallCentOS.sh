@@ -20,7 +20,7 @@ sudo echo "192.168.0.6     puppetmaster.localdomain puppetmaster" >> /etc/hosts
 # Add puppetmaster to puppet.conf
 sudo sed -i '/\[main\]/a      server = puppetmaster.localdomain' /etc/puppet/puppet.conf
 sudo sed -i 's/server =/    server =/' /etc/puppet/puppet.conf
-sudo sed -i '/localconfig =/a      runinterval = 4' /etc/puppet/puppet.conf
+sudo sed -i '/localconfig =/a      runinterval = 120' /etc/puppet/puppet.conf
 sudo sed -i '/localconfig =/a      debug = true' /etc/puppet/puppet.conf
 
 # http://docs.puppetlabs.com/guides/installation.html#post-install
