@@ -3,7 +3,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure("2") do |config|
    config.vm.define "master" do |master|
-     master.vm.box = "chef/centos-6.5"
+     master.vm.box = "puppetlabs/centos-6.5-64-nocm"
      master.vm.hostname= "puppetmaster.localdomain"
      master.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      master.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
     end
 
    config.vm.define "client100" do |client100|
-     client100.vm.box = "chef/centos-6.5"
+     client100.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client100.vm.hostname= "client100.localdomain"
      client100.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client100.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
@@ -46,7 +46,7 @@ Vagrant.configure("2") do |config|
     client100.vm.provision :shell, :inline => 'echo "192.168.0.100  client100.localdomain client100" >> /etc/hosts'
     end
    config.vm.define "client101" do |client101|
-     client101.vm.box = "chef/centos-6.5"
+     client101.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client101.vm.hostname= "client101.localdomain"
      client101.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client101.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
@@ -67,7 +67,7 @@ Vagrant.configure("2") do |config|
     client101.vm.provision :shell, :inline => 'echo "192.168.0.101  client101.localdomain client101" >> /etc/hosts'
     end
    config.vm.define "client102" do |client102|
-     client102.vm.box = "chef/centos-6.5"
+     client102.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client102.vm.hostname= "client102.localdomain"
      client102.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client102.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
@@ -88,7 +88,7 @@ Vagrant.configure("2") do |config|
     client102.vm.provision :shell, :inline => 'echo "192.168.0.102  client102.localdomain client102" >> /etc/hosts'
     end
    config.vm.define "client103" do |client103|
-     client103.vm.box = "chef/centos-6.5"
+     client103.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client103.vm.hostname= "client103.localdomain"
      client103.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client103.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
@@ -109,7 +109,7 @@ Vagrant.configure("2") do |config|
     client103.vm.provision :shell, :inline => 'echo "192.168.0.103  client103.localdomain client103" >> /etc/hosts'
     end
    config.vm.define "client104" do |client104|
-     client104.vm.box = "chef/centos-6.5"
+     client104.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client104.vm.hostname= "client104.localdomain"
      client104.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client104.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
@@ -130,7 +130,7 @@ Vagrant.configure("2") do |config|
     client104.vm.provision :shell, :inline => 'echo "192.168.0.104  client104.localdomain client104" >> /etc/hosts'
     end
    config.vm.define "client105" do |client105|
-     client105.vm.box = "chef/centos-6.5"
+     client105.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client105.vm.hostname= "client105.localdomain"
      client105.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client105.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
@@ -151,7 +151,7 @@ Vagrant.configure("2") do |config|
     client105.vm.provision :shell, :inline => 'echo "192.168.0.105  client105.localdomain client105" >> /etc/hosts'
     end
    config.vm.define "client106" do |client106|
-     client106.vm.box = "chef/centos-6.5"
+     client106.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client106.vm.hostname= "client106.localdomain"
      client106.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client106.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
@@ -172,7 +172,7 @@ Vagrant.configure("2") do |config|
     client106.vm.provision :shell, :inline => 'echo "192.168.0.106  client106.localdomain client106" >> /etc/hosts'
     end
    config.vm.define "client107" do |client107|
-     client107.vm.box = "chef/centos-6.5"
+     client107.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client107.vm.hostname= "client107.localdomain"
      client107.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client107.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
@@ -193,7 +193,7 @@ Vagrant.configure("2") do |config|
     client107.vm.provision :shell, :inline => 'echo "192.168.0.107  client107.localdomain client107" >> /etc/hosts'
     end
    config.vm.define "client108" do |client108|
-     client108.vm.box = "chef/centos-6.5"
+     client108.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client108.vm.hostname= "client108.localdomain"
      client108.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client108.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
@@ -214,7 +214,7 @@ Vagrant.configure("2") do |config|
     client108.vm.provision :shell, :inline => 'echo "192.168.0.108  client108.localdomain client108" >> /etc/hosts'
     end
    config.vm.define "client109" do |client109|
-     client109.vm.box = "chef/centos-6.5"
+     client109.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client109.vm.hostname= "client109.localdomain"
      client109.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      client109.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
