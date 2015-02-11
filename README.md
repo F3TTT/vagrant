@@ -64,7 +64,7 @@ Use Case Index
 Use Case 1 - Install a package via puppet
 ======
 
-1.  Install a package via puppet on one machine
+1.  Install a package on one machine
  - vagrant ssh master
   - ```sudo puppet module install -i /etc/puppet/environments/production/modules saz/ntp```
   - add class to hosts in foreman GUI
@@ -78,7 +78,12 @@ Use Case 1 - Install a package via puppet
     - ntp
     - + sign next to ntp
     - submit
+  - Confirm that NTP changes were applied via https://puppetmaster.localdomain/reports?search=eventful+%3D+true
 
+
+Use Case 2 - Install a package on many machines
+======
+ - probably need to group the hosts together in some fashion
 
 
 Architecture Questions
