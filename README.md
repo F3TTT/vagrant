@@ -28,7 +28,9 @@ HOWTO USE THESE EXAMPLES (think I was supposed to put HOWTO make this image here
 TODO
 ======
 
-1.  Improve README to flesh out the github section
+1.  Capture foreman password and send it to a file or determine how to reset it.
+-  Set puppet agent to run in debug mode
+-  Improve README to flesh out the github section
 -  Determine way to use virtualbox while VPNed in.  Can't get browser to connect to foreman.
 -  Make puppet client join to puppet server and control puppet client with basic commands.
  - having issues with puppet agent not checking in every 30 min due to cert issues.  dropping runinterval to 2m in /etc/puppet/puppet.conf to troubleshoot.  This didn't work.  moving to 4m interval and want to set agent to debug mode(see what is really happening)
