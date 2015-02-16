@@ -38,7 +38,7 @@ Vagrant.configure("2") do |config|
      client100.vm.synced_folder "etc/", "/home/vagrant/etc"
      
      client100.vm.provider :virtualbox do |v, override|
-       override.vm.network :private_network, ip: "192.168.1.100"
+       override.vm.network :private_network, ip: "192.168.0.100"
        # Use the host's DNS resolver
        v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
        v.customize ["modifyvm", :id, "--memory", "2048"]
@@ -53,7 +53,7 @@ Vagrant.configure("2") do |config|
     client100.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
     client100.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
     client100.vm.provision :shell, :path => "shell/linux/puppetInstallCentOS.sh"
-    client100.vm.provision :shell, :inline => 'echo "192.168.1.100  client100.localdomain client100" >> /etc/hosts'
+    client100.vm.provision :shell, :inline => 'echo "192.168.0.100  client100.localdomain client100" >> /etc/hosts'
     end
    config.vm.define "client101" do |client101|
      client101.vm.box = "puppetlabs/centos-6.5-64-nocm"
