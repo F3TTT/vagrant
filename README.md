@@ -42,7 +42,8 @@ Use Case Index
 ======
 
 1.  Install a package on one machine
-- Install a package on many machines
+- Install a package on all machines
+- Install a package on a subset of the machines
 -  Control package configuration
 -  Enforce CM
 -  Control diverse package configurations based upon geographic location
