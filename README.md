@@ -29,11 +29,8 @@ TODO
 ======
 
 1.  Capture foreman password and send it to a file or determine how to reset it.
--  Set puppet agent to run in debug mode
 -  Improve README to flesh out the github section
--  Determine way to use virtualbox while VPNed in.  Can't get browser to connect to foreman.
 -  Make puppet client join to puppet server and control puppet client with basic commands.
- - having issues with puppet agent not checking in every 30 min due to cert issues.  dropping runinterval to 2m in /etc/puppet/puppet.conf to troubleshoot.  This didn't work.  moving to 4m interval and want to set agent to debug mode(see what is really happening)
 -  Gather use cases for puppet inside Epiq
 -  Execute use cases
 -  Incrementally improve framework to fix all use cases
@@ -86,6 +83,12 @@ Use Case 2 - Install a package on many machines
  - probably need to group the hosts together in some fashion
 
 
+VPN Notes
+======
+
+1.  If you're running this setup behind the Cisco Anyconnect client you won't be able to SSH to your boxes or bring them up in browsers.  I wasn't able to solve that but the workaround is to use another linux VM with a desktop.  Add a second NIC to that linux VM and make sure that it's a Host-only Adapter and that it's the same one that your vagrant boxes are sharing.  It is possible that this problem has to do with wifi vs. wired connections since I work mostly on wireless when I'm not in the office.
+
+
 Architecture Questions
 ======
 
@@ -96,6 +99,14 @@ Architecture Questions
 
 CHANGELOG
 ======
+
+20150216
+
+1.  Determined way to use virtualbox while VPNed in.  Can't get browser to connect to foreman.
+
+20150213
+
+1.  Set puppet agent to run in debug mode (this located the runinterval disparity being in seconds not minutes that fixed the cert problem)
 
 20150206
 
