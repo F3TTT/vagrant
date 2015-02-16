@@ -14,42 +14,95 @@ HOWTO USE THESE EXAMPLES (think I was supposed to put HOWTO make this image here
 ======
 
 1.  Install Vagrant  use http://vagrantup.com and use download link, not downloads.vagrantup.com 
-2.  Install Virtualbox
-3.  Pull code from Github
-4.  vagrant up master
-5.  Add following lines to hosts file on laptop
-
-        192.168.0.6     puppetmaster.localdomain
-        192.168.0.100	puppetclient.localdomain
-
-6.  log into foreman https://192.168.0.6 (ignore cert issues, may have to flush cache/use private or incognito modes to get around them)
+-   Install Virtualbox
+-   Install vagrant plugin HostsUpdater https://github.com/cogitatio/vagrant-hostsupdater (may require many re-attempts if there is network congestion) 
+-  Pull code from Github
+-  vagrant up master
+-  log into foreman https://puppetmaster.localdomain (ignore cert issues, may have to flush cache/use private or incognito modes to get around them)
     username and password to foreman are produced randomly during vagrant up.  Scroll up in vagrant up session to find it.
-7.  Set up smart proxy: https://puppetmaster.localdomain:8443
-8.  vagrant up client
-9.  vagrant ssh master
- - puppet module install -i /etc/puppet/environments/production/modules saz/ntp
- - add class to hosts in foreman GUI
-10.  Report bugs, especially for Mac/VMWare uses.  Development on platforms other than Win7/Virtualbox are not currently a priority.
+-  Set up smart proxy by browsing to https://puppetmaster.localdomain/smart_proxies and clicking New Smart Proxy then adding: https://puppetmaster.localdomain:8443
+-  vagrant up client
+-  Report bugs, especially for Mac/VMWare uses.  Development on platforms other than Win7/Virtualbox are not currently a priority.
 
 
 TODO
 ======
 
-0.  Improve README to flesh out the github section
-1.  Make puppet client join to puppet server and control puppet client with basic commands.
- - having issues with puppet agent not checking in every 30 min due to cert issues.  dropping runinterval to 2m in /etc/puppet/puppet.conf to troubleshot
-2.  ~~Add puppet client to foreman ENC.~~ 
-3.  ~~Set up smart proxy inside foreman ENC and document procedure.~~
-4.  Gather use cases for puppet inside Epiq
-5.  Execute use cases
-6.  Incrementally improve framework to fix all use cases
-7.  Provide framework to business for acquisition of licenses.
-8.  Implement in production
-9.  See if foreman install can be sped up.  Alternatively, fork off to diff vagrant to speed up sprints
+1.  Capture foreman password and send it to a file or determine how to reset it.
+-  Set puppet agent to run in debug mode
+-  Improve README to flesh out the github section
+-  Determine way to use virtualbox while VPNed in.  Can't get browser to connect to foreman.
+-  Make puppet client join to puppet server and control puppet client with basic commands.
+ - having issues with puppet agent not checking in every 30 min due to cert issues.  dropping runinterval to 2m in /etc/puppet/puppet.conf to troubleshoot.  This didn't work.  moving to 4m interval and want to set agent to debug mode(see what is really happening)
+-  Gather use cases for puppet inside Epiq
+-  Execute use cases
+-  Incrementally improve framework to fix all use cases
+-  Provide framework to business for acquisition of licenses.
+-  Implement in production
+-  See if foreman install can be sped up.  Alternatively, fork off to diff vagrant to speed up sprints
 
-
-Use cases and architecture questions
+Use Case Index
 ======
+
+1.  Install a package on one machine
+- Install a package on many machines
+-  Control package configuration
+-  Enforce CM
+-  Control diverse package configurations based upon geographic location
+-  Control diverse package configurations based upon code maturity (dev/qa/prod)
+-  Control diverse package configurations based upon geolocation and code maturity
+-  Report system settings into CMDB via puppet
+-  Developer is able to contribute code but only sysadmins can make changes in production
+-  AppServices is able to control application configurations while OS admins control OS settings
+-  Add application node to load balancer
+-  Remove application node from load balancer
+-  Upgrade application
+-  Orchestrate application upgrade
+-  Orchestrate application upgrade with minimal customer impact
+-  Developer is able to check out production branch and create dynamic environment on laptop or VMWare
+
+Use Case 1 - Install a package via puppet
+======
+
+1.  Install a package on one machine
+ - vagrant ssh master
+  - ```sudo puppet module install -i /etc/puppet/environments/production/modules saz/ntp```
+  - add class to hosts in foreman GUI
+    - Configure -> Puppet Classes
+    - Import from puppetmaster
+    - Toggle ntp line and click update
+    - Ntp -> Smart Class Parameter -> Check Override -> Submit
+    - Hosts -> All hosts
+    - click on edit box (sort of looks like dropdown) on puppetclient.localdomain
+    - Puppet Classes tab
+    - ntp
+    - + sign next to ntp
+    - submit
+  - Confirm that NTP changes were applied via https://puppetmaster.localdomain/reports?search=eventful+%3D+true
+
+
+Use Case 2 - Install a package on many machines
+======
+ - probably need to group the hosts together in some fashion
+
+
+Architecture Questions
+======
+
 1.  How many masters will we need?  How will load balancing of master be achieved
-2.  Where does the Certificate Authority sit?
-3.  Allow dev to autosign but not QA and Prod, How?
+-  Where does the Certificate Authority sit?
+-  Allow dev to autosign but not QA and Prod, How?
+
+
+CHANGELOG
+======
+
+20150206
+
+1.  Broke out use cases and fleshed out 15 examples
+
+20150202
+
+1.  Add puppet client to foreman ENC. 
+-  Set up smart proxy inside foreman ENC and document procedure.
+-  Converted manual hosts file changes from vagrant user's laptop to HostsUpdater plugin method
