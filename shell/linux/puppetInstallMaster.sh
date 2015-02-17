@@ -29,6 +29,9 @@ sudo yum -y install foreman-installer
 
 # autosign on - never use this for production
 sudo sh -c "echo *.localdomain" > /etc/puppet/autosign.conf
+sudo sh -c "echo *.ficust" >> /etc/puppet/autosign.conf
+sudo sh -c "echo *.krcust" >> /etc/puppet/autosign.conf
+sudo sh -c "echo *.thcust" >> /etc/puppet/autosign.conf
 
 # trying to see if this will clear the error after foreman-installer.  
 # don't need to stop/start it if that wasn't source of build fail
@@ -52,8 +55,14 @@ usermod -p "paX5EmO4EXy0I" vagrant
 
 # Install Foreman
 # use || true to override the failure to start apache that causes build to fail
-foreman-installer || true
+foreman-installer > /tmp/foremanInstaller.stdout|| true
+
+FOREMANPASSWORD=`grep Initial /tmp/foremanInstaller.stdout | awk '{ print $6 }'`
+
+echo "FOREMANPASSWORD should be $FOREMANPASSWORD"
 
 sudo service httpd stop
 sudo service httpd start
+
+curl -k -u admin:$FOREMANPASSWORD -H 'Content-Type: application/json' -d '{"smart_proxy":{"name": "default", "url": "https://puppetmaster.localdomain:8443"}}' -X POST https://puppetmaster.localdomain/api/v2/smart_proxies
 
