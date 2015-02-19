@@ -55,7 +55,8 @@ usermod -p "paX5EmO4EXy0I" vagrant
 
 # Install Foreman
 # use || true to override the failure to start apache that causes build to fail
-foreman-installer > /tmp/foremanInstaller.stdout|| true
+#foreman-installer > /tmp/foremanInstaller.stdout|| true
+foreman-installer --puppet-server=false --foreman-proxy-puppetrun=false --foreman-proxy-puppetca=false > /tmp/foremanInstaller.stdout|| true
 
 FOREMANPASSWORD=`grep Initial /tmp/foremanInstaller.stdout | awk '{ print $6 }'`
 

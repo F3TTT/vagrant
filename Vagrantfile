@@ -32,9 +32,6 @@ Vagrant.configure("2") do |config|
    config.vm.define "client100" do |client100|
      client100.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client100.vm.hostname= "client100.ficust"
-     client100.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
-     client100.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
-     client100.vm.synced_folder "puppet/", "/home/vagrant/puppet"
      client100.vm.synced_folder "etc/", "/home/vagrant/etc"
      
      client100.vm.provider :virtualbox do |v, override|
@@ -58,9 +55,6 @@ Vagrant.configure("2") do |config|
    config.vm.define "client101" do |client101|
      client101.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client101.vm.hostname= "client101.ficust"
-     client101.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
-     client101.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
-     client101.vm.synced_folder "puppet/", "/home/vagrant/puppet"
      client101.vm.synced_folder "etc/", "/home/vagrant/etc"
      
      client101.vm.provider :virtualbox do |v, override|
@@ -84,9 +78,6 @@ Vagrant.configure("2") do |config|
    config.vm.define "client102" do |client102|
      client102.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client102.vm.hostname= "client102.ficust"
-     client102.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
-     client102.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
-     client102.vm.synced_folder "puppet/", "/home/vagrant/puppet"
      client102.vm.synced_folder "etc/", "/home/vagrant/etc"
      
      client102.vm.provider :virtualbox do |v, override|
@@ -110,9 +101,6 @@ Vagrant.configure("2") do |config|
    config.vm.define "client103" do |client103|
      client103.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client103.vm.hostname= "client103.krcust"
-     client103.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
-     client103.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
-     client103.vm.synced_folder "puppet/", "/home/vagrant/puppet"
      client103.vm.synced_folder "etc/", "/home/vagrant/etc"
      
      client103.vm.provider :virtualbox do |v, override|
@@ -136,9 +124,6 @@ Vagrant.configure("2") do |config|
    config.vm.define "client104" do |client104|
      client104.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client104.vm.hostname= "client104.krcust"
-     client104.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
-     client104.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
-     client104.vm.synced_folder "puppet/", "/home/vagrant/puppet"
      client104.vm.synced_folder "etc/", "/home/vagrant/etc"
      
      client104.vm.provider :virtualbox do |v, override|
@@ -162,9 +147,6 @@ Vagrant.configure("2") do |config|
    config.vm.define "client105" do |client105|
      client105.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client105.vm.hostname= "client105.krcust"
-     client105.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
-     client105.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
-     client105.vm.synced_folder "puppet/", "/home/vagrant/puppet"
      client105.vm.synced_folder "etc/", "/home/vagrant/etc"
      
      client105.vm.provider :virtualbox do |v, override|
@@ -188,9 +170,6 @@ Vagrant.configure("2") do |config|
    config.vm.define "client106" do |client106|
      client106.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client106.vm.hostname= "client106.thcust"
-     client106.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
-     client106.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
-     client106.vm.synced_folder "puppet/", "/home/vagrant/puppet"
      client106.vm.synced_folder "etc/", "/home/vagrant/etc"
      
      client106.vm.provider :virtualbox do |v, override|
@@ -214,9 +193,6 @@ Vagrant.configure("2") do |config|
    config.vm.define "client107" do |client107|
      client107.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client107.vm.hostname= "client107.thcust"
-     client107.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
-     client107.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
-     client107.vm.synced_folder "puppet/", "/home/vagrant/puppet"
      client107.vm.synced_folder "etc/", "/home/vagrant/etc"
      
      client107.vm.provider :virtualbox do |v, override|
@@ -240,9 +216,6 @@ Vagrant.configure("2") do |config|
    config.vm.define "client108" do |client108|
      client108.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client108.vm.hostname= "client108.thcust"
-     client108.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
-     client108.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
-     client108.vm.synced_folder "puppet/", "/home/vagrant/puppet"
      client108.vm.synced_folder "etc/", "/home/vagrant/etc"
      
      client108.vm.provider :virtualbox do |v, override|
@@ -266,9 +239,6 @@ Vagrant.configure("2") do |config|
    config.vm.define "client109" do |client109|
      client109.vm.box = "puppetlabs/centos-6.5-64-nocm"
      client109.vm.hostname= "client109.localdomain"
-     client109.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
-     client109.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
-     client109.vm.synced_folder "puppet/", "/home/vagrant/puppet"
      client109.vm.synced_folder "etc/", "/home/vagrant/etc"
      
      client109.vm.provider :virtualbox do |v, override|

@@ -27,7 +27,7 @@ sudo sed -i '/localconfig =/a      debug = true' /etc/puppet/puppet.conf
 sudo puppet resource service puppet ensure=running enable=true
 
 # Request cert 
-sudo puppet agent --test 
+sudo puppet agent --waitforcert 60 --test 
 
 # set vagrant password
 usermod -p "paX5EmO4EXy0I" vagrant

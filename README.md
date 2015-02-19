@@ -17,11 +17,7 @@ HOWTO USE THESE EXAMPLES (think I was supposed to put HOWTO make this image here
 -   Install Virtualbox
 -   Install vagrant plugin HostsUpdater https://github.com/cogitatio/vagrant-hostsupdater (may require many re-attempts if there is network congestion) 
 -  Pull code from Github
--  vagrant up master
--  log into foreman https://puppetmaster.localdomain (ignore cert issues, may have to flush cache/use private or incognito modes to get around them)
-    username and password to foreman are produced randomly during vagrant up.  Scroll up in vagrant up session to find it.
--  Set up smart proxy by browsing to https://puppetmaster.localdomain/smart_proxies and clicking New Smart Proxy then adding: https://puppetmaster.localdomain:8443
--  vagrant up client
+-  vagrant up (foreman temp password is stored in /tmp on master)
 -  Report bugs, especially for Mac/VMWare uses.  Development on platforms other than Win7/Virtualbox are not currently a priority.
 
 
@@ -81,6 +77,8 @@ Use Case 1 - Install a package via puppet
 
 Use Case 2 - Install a package on many machines
 ======
+ - vagrant up
+ - 
  - probably need to group the hosts together in some fashion
 
 
@@ -100,6 +98,10 @@ Architecture Questions
 
 CHANGELOG
 ======
+
+20150217
+
+1.  Use curl to add smart proxy via API call.  Simplifies deploy of env from 5 steps to 1.
 
 20150216
 
