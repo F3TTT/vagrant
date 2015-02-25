@@ -2,15 +2,15 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure("2") do |config|
-   config.vm.define "master" do |master|
-     master.vm.box = "puppetlabs/centos-6.5-64-nocm"
-     master.vm.hostname= "puppetmaster.localdomain"
-     master.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
-     master.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
-     master.vm.synced_folder "puppet/", "/home/vagrant/puppet"
-     master.vm.synced_folder "etc/", "/home/vagrant/etc"
+   config.vm.define "puppetmasterfi" do |puppetmasterfi|
+     puppetmasterfi.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     puppetmasterfi.vm.hostname= "puppetpuppetmaster.ficust"
+     puppetmasterfi.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
+     puppetmasterfi.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
+     puppetmasterfi.vm.synced_folder "puppet/", "/home/vagrant/puppet"
+     puppetmasterfi.vm.synced_folder "etc/", "/home/vagrant/etc"
      
-     master.vm.provider :virtualbox do |v, override|
+     puppetmasterfi.vm.provider :virtualbox do |v, override|
        override.vm.network :private_network, ip: "192.168.0.6"
        # Use the host's DNS resolver
        v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
@@ -19,14 +19,14 @@ Vagrant.configure("2") do |config|
      end
 
     if defined? VagrantPlugins::HostsUpdater
-      master.hostsupdater.aliases = ["#{master.vm.hostname}.dev"]
+      puppetmasterfi.hostsupdater.aliases = ["#{puppetmasterfi.vm.hostname}.dev"]
     end
 
     
-    master.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
-    master.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
-    master.vm.provision :shell, :path => "shell/linux/puppetInstallMaster.sh"
-    master.vm.provision :shell, :inline => 'echo "192.168.0.6  puppetmaster.localdomain puppetmaster" >> /etc/hosts'
+    puppetmasterfi.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
+    puppetmasterfi.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
+    puppetmasterfi.vm.provision :shell, :path => "shell/linux/puppetInstallMaster.sh"
+    puppetmasterfi.vm.provision :shell, :inline => 'echo "192.168.0.6  puppetpuppetmaster.ficust puppetmaster" >> /etc/hosts'
     end
 
    config.vm.define "client100" do |client100|
