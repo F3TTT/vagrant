@@ -67,5 +67,5 @@ sudo service httpd stop
 sudo service httpd start
 sudo service puppetmaster restart
 
-curl -k -u admin:$FOREMANPASSWORD -H 'Content-Type: application/json' -d '{"smart_proxy":{"name": "default", "url": "https://puppetmaster.ficust:8443"}}' -X POST https://puppetmaster.ficust/api/v2/smart_proxies
+#curl -k -u admin:$FOREMANPASSWORD -H 'Content-Type: application/json' -d '{"smart_proxy":{"name": "default", "url": "https://puppetmaster.ficust:8443"}}' -X POST https://puppetmaster.ficust/api/v2/smart_proxies
 

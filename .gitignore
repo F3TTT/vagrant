@@ -1,2 +1,4 @@
 .vagrant
 resources
+puppet/manifests/
+puppet/modules/
