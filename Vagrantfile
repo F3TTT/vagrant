@@ -2,9 +2,63 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure("2") do |config|
+   config.vm.define "foreman" do |foreman|
+     foreman.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     foreman.vm.hostname= "foreman.ficust"
+     foreman.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
+     foreman.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
+     foreman.vm.synced_folder "puppet/", "/home/vagrant/puppet"
+     foreman.vm.synced_folder "etc/", "/home/vagrant/etc"
+     
+     foreman.vm.provider :virtualbox do |v, override|
+       override.vm.network :private_network, ip: "192.168.0.1"
+       # Use the host's DNS resolver
+       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+       v.customize ["modifyvm", :id, "--memory", "2048"]
+       v.customize ["modifyvm", :id, "--cpus", "2"]
+     end
+
+    if defined? VagrantPlugins::HostsUpdater
+      foreman.hostsupdater.aliases = ["#{foreman.vm.hostname}.dev"]
+    end
+
+    
+    foreman.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
+    foreman.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
+    foreman.vm.provision :shell, :path => "shell/linux/puppetInstallForeman.sh"
+    foreman.vm.provision :shell, :inline => 'echo "192.168.0.1  foreman.ficust foreman" >> /etc/hosts'
+    end
+
+   config.vm.define "foremanenc" do |foremanenc|
+     foremanenc.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     foremanenc.vm.hostname= "foremanenc.ficust"
+     foremanenc.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
+     foremanenc.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
+     foremanenc.vm.synced_folder "puppet/", "/home/vagrant/puppet"
+     foremanenc.vm.synced_folder "etc/", "/home/vagrant/etc"
+     
+     foremanenc.vm.provider :virtualbox do |v, override|
+       override.vm.network :private_network, ip: "192.168.0.2"
+       # Use the host's DNS resolver
+       v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+       v.customize ["modifyvm", :id, "--memory", "2048"]
+       v.customize ["modifyvm", :id, "--cpus", "2"]
+     end
+
+    if defined? VagrantPlugins::HostsUpdater
+      foremanenc.hostsupdater.aliases = ["#{foremanenc.vm.hostname}.dev"]
+    end
+
+    
+    foremanenc.vm.provision :shell, :path => "shell/linux/addEpiqRepos.sh"
+    foremanenc.vm.provision :shell, :path => "shell/linux/addBaseTools.sh"
+    foremanenc.vm.provision :shell, :path => "shell/linux/puppetInstallMaster.sh"
+    foremanenc.vm.provision :shell, :inline => 'echo "192.168.0.2  foremanenc.ficust foremanenc" >> /etc/hosts'
+    end
+
    config.vm.define "puppetmasterfi" do |puppetmasterfi|
      puppetmasterfi.vm.box = "puppetlabs/centos-6.5-64-nocm"
-     puppetmasterfi.vm.hostname= "puppetpuppetmaster.ficust"
+     puppetmasterfi.vm.hostname= "puppetmaster.ficust"
      puppetmasterfi.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      puppetmasterfi.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
      puppetmasterfi.vm.synced_folder "puppet/", "/home/vagrant/puppet"
