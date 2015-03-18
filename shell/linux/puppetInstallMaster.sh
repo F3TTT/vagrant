@@ -14,8 +14,8 @@ sudo chkconfig iptables off
 
 # Set the hostname to puppet
 # sudo vim /etc/sysconfig/network
-sudo hostname puppetmaster.ficust
-sudo service network restart
+#sudo hostname puppetmaster.ficust
+#sudo service network restart
 
 
 # add the RPM
@@ -44,12 +44,12 @@ sudo service puppetmaster stop
 sudo cp /home/vagrant/puppet/puppet.conf /etc/puppet/puppet.conf
 
 #start puppetmaster
-sudo service puppetmaster start
+#sudo service puppetmaster start
 sudo service puppet start
 
 # http://docs.puppetlabs.com/guides/installation.html#post-install
 sudo puppet resource service puppet ensure=running enable=true
-sudo puppet resource service puppetmaster ensure=running enable=true
+#sudo puppet resource service puppetmaster ensure=running enable=true
 
 # set vagrant password
 usermod -p "paX5EmO4EXy0I" vagrant
@@ -65,7 +65,7 @@ echo "FOREMANPASSWORD should be $FOREMANPASSWORD"
 
 sudo service httpd stop
 sudo service httpd start
-sudo service puppetmaster restart
+#sudo service puppetmaster restart
 
 #curl -k -u admin:$FOREMANPASSWORD -H 'Content-Type: application/json' -d '{"smart_proxy":{"name": "default", "url": "https://puppetmaster.ficust:8443"}}' -X POST https://puppetmaster.ficust/api/v2/smart_proxies
 
