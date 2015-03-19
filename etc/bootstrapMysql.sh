@@ -9,7 +9,7 @@ then
     echo "GRANT ALL PRIVILEGES ON foreman.* TO 'foreman'@'foreman-enc.domain' IDENTIFIED BY 'foreman_password';" | mysql -uroot 
     echo "CREATE USER 'foreman'@'foreman-reports.wit.prod';" | mysql -uroot -prootpass
     echo "GRANT ALL PRIVILEGES ON foreman.* TO 'foreman'@'foreman-reports.domain' IDENTIFIED BY 'foreman_password';" | mysql -uroot 
-    echo "UPDATE user SET password=PASSWORD('root') WHERE user='root'; | mysql -uroot 
+    echo "UPDATE user SET password=PASSWORD('root') WHERE user='root';" | mysql -uroot 
     echo "flush privileges" | mysql -uroot 
 
     touch /var/log/databasesetup

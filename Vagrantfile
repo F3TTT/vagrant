@@ -3,7 +3,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure("2") do |config|
    config.vm.define "foreman" do |foreman|
-     foreman.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     foreman.vm.box = "puppetlabs/centos-6.6-64-nocm"
      foreman.vm.hostname= "foreman.ficust"
      foreman.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      foreman.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
 
 
    config.vm.define "foremanenc" do |foremanenc|
-     foremanenc.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     foremanenc.vm.box = "puppetlabs/centos-6.6-64-nocm"
      foremanenc.vm.hostname= "foremanenc.ficust"
      foremanenc.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      foremanenc.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
@@ -58,7 +58,7 @@ Vagrant.configure("2") do |config|
 
 
    config.vm.define "foremandb" do |foremandb|
-     foremandb.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     foremandb.vm.box = "puppetlabs/centos-6.6-64-nocm"
      foremandb.vm.hostname= "foremandb.ficust"
      foremandb.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      foremandb.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
@@ -85,7 +85,7 @@ Vagrant.configure("2") do |config|
 
 
    config.vm.define "puppetmasterfi" do |puppetmasterfi|
-     puppetmasterfi.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     puppetmasterfi.vm.box = "puppetlabs/centos-6.6-64-nocm"
      puppetmasterfi.vm.hostname= "puppetmaster.ficust"
      puppetmasterfi.vm.synced_folder "puppet/modules", "/etc/puppet/modules"
      puppetmasterfi.vm.synced_folder "puppet/manifests", "/etc/puppet/manifests"
@@ -112,7 +112,7 @@ Vagrant.configure("2") do |config|
     end
 
    config.vm.define "client100" do |client100|
-     client100.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     client100.vm.box = "puppetlabs/centos-6.6-64-nocm"
      client100.vm.hostname= "client100.ficust"
      client100.vm.synced_folder "etc/", "/home/vagrant/etc"
      
@@ -135,7 +135,7 @@ Vagrant.configure("2") do |config|
     client100.vm.provision :shell, :inline => 'echo "192.168.0.100  client100.ficust client100" >> /etc/hosts'
     end
    config.vm.define "client101" do |client101|
-     client101.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     client101.vm.box = "puppetlabs/centos-6.6-64-nocm"
      client101.vm.hostname= "client101.ficust"
      client101.vm.synced_folder "etc/", "/home/vagrant/etc"
      
@@ -158,7 +158,7 @@ Vagrant.configure("2") do |config|
     client101.vm.provision :shell, :inline => 'echo "192.168.0.101  client101.ficust client101" >> /etc/hosts'
     end
    config.vm.define "client102" do |client102|
-     client102.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     client102.vm.box = "puppetlabs/centos-6.6-64-nocm"
      client102.vm.hostname= "client102.ficust"
      client102.vm.synced_folder "etc/", "/home/vagrant/etc"
      
@@ -181,7 +181,7 @@ Vagrant.configure("2") do |config|
     client102.vm.provision :shell, :inline => 'echo "192.168.0.102  client102.ficust client102" >> /etc/hosts'
     end
    config.vm.define "client103" do |client103|
-     client103.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     client103.vm.box = "puppetlabs/centos-6.6-64-nocm"
      client103.vm.hostname= "client103.krcust"
      client103.vm.synced_folder "etc/", "/home/vagrant/etc"
      
@@ -204,7 +204,7 @@ Vagrant.configure("2") do |config|
     client103.vm.provision :shell, :inline => 'echo "192.168.0.103  client103.krcust client103" >> /etc/hosts'
     end
    config.vm.define "client104" do |client104|
-     client104.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     client104.vm.box = "puppetlabs/centos-6.6-64-nocm"
      client104.vm.hostname= "client104.krcust"
      client104.vm.synced_folder "etc/", "/home/vagrant/etc"
      
@@ -227,7 +227,7 @@ Vagrant.configure("2") do |config|
     client104.vm.provision :shell, :inline => 'echo "192.168.0.104  client104.krcust client104" >> /etc/hosts'
     end
    config.vm.define "client105" do |client105|
-     client105.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     client105.vm.box = "puppetlabs/centos-6.6-64-nocm"
      client105.vm.hostname= "client105.krcust"
      client105.vm.synced_folder "etc/", "/home/vagrant/etc"
      
@@ -250,7 +250,7 @@ Vagrant.configure("2") do |config|
     client105.vm.provision :shell, :inline => 'echo "192.168.0.105  client105.krcust client105" >> /etc/hosts'
     end
    config.vm.define "client106" do |client106|
-     client106.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     client106.vm.box = "puppetlabs/centos-6.6-64-nocm"
      client106.vm.hostname= "client106.thcust"
      client106.vm.synced_folder "etc/", "/home/vagrant/etc"
      
@@ -273,7 +273,7 @@ Vagrant.configure("2") do |config|
     client106.vm.provision :shell, :inline => 'echo "192.168.0.106  client106.thcust client106" >> /etc/hosts'
     end
    config.vm.define "client107" do |client107|
-     client107.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     client107.vm.box = "puppetlabs/centos-6.6-64-nocm"
      client107.vm.hostname= "client107.thcust"
      client107.vm.synced_folder "etc/", "/home/vagrant/etc"
      
@@ -296,7 +296,7 @@ Vagrant.configure("2") do |config|
     client107.vm.provision :shell, :inline => 'echo "192.168.0.107  client107.thcust client107" >> /etc/hosts'
     end
    config.vm.define "client108" do |client108|
-     client108.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     client108.vm.box = "puppetlabs/centos-6.6-64-nocm"
      client108.vm.hostname= "client108.thcust"
      client108.vm.synced_folder "etc/", "/home/vagrant/etc"
      
@@ -319,7 +319,7 @@ Vagrant.configure("2") do |config|
     client108.vm.provision :shell, :inline => 'echo "192.168.0.108  client108.thcust client108" >> /etc/hosts'
     end
    config.vm.define "client109" do |client109|
-     client109.vm.box = "puppetlabs/centos-6.5-64-nocm"
+     client109.vm.box = "puppetlabs/centos-6.6-64-nocm"
      client109.vm.hostname= "client109.localdomain"
      client109.vm.synced_folder "etc/", "/home/vagrant/etc"
      
