@@ -14,7 +14,7 @@ sudo chkconfig iptables off
 
 # add the RPM
 # http://docs.puppetlabs.com/guides/puppetlabs_package_repositories.html#for-red-hat-enterprise-linux-and-derivatives
-sudo yum -y install mysql
+sudo yum -y install mysql puppet mysql-server
 
 sudo service puppet stop
 #move puppet.conf into place
@@ -25,10 +25,9 @@ sudo service puppet start
 
 # http://docs.puppetlabs.com/guides/installation.html#post-install
 sudo puppet resource service puppet ensure=running enable=true
+sudo puppet resource service mysqld ensure=running enable=true
 
 # set vagrant password
 usermod -p "paX5EmO4EXy0I" vagrant
-
-sudo service httpd stop
 
 sudo /bootstrapMysql.sh
